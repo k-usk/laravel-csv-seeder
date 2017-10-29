@@ -1,0 +1,37 @@
+<If "env('APP_ENV') == 'develop'>
+    SetEnvIf X-Forwarded-For 124.37.140.178 tam-osaka
+    SetEnvIf X-Forwarded-For 122.212.159.90 tam-tokyo
+    SetEnvIf X-Forwarded-For 60.128.3.203 home
+    <RequireAny>
+        Require env tam-osaka
+        Require env tam-tokyo
+        Require env home
+        Require valid-user
+    </RequireAny>
+</If>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # ssl
+    RewriteCond %{HTTP:X-Forwarded-Proto} ^http$
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
