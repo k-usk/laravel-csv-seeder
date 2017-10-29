@@ -4,11 +4,17 @@
   "env": {
     "APP_DEBUG": "true",
     "APP_ENV": "production",
-    "APP_KEY": "",
+    "APP_KEY": {
+      "required":false
+    },
     "APP_LOG": "debug",
     "APP_LOG_LEVEL": "errorlog",
-    "APP_NAME": "Laravel",
-    "APP_URL": ""
+    "APP_NAME": {
+      "required":false
+    },
+    "APP_URL": {
+      "required":false
+    }
   },
   "formation": {},
   "addons": [],
