@@ -1,0 +1,20 @@
+{
+  "name": "laravel-csv-seeder",
+  "scripts": {},
+  "env": {
+    "APP_DEBUG": "true",
+    "APP_ENV": "production",
+    "APP_KEY": "",
+    "APP_LOG": "debug",
+    "APP_LOG_LEVEL": "errorlog",
+    "APP_NAME": "Laravel",
+    "APP_URL": ""
+  },
+  "formation": {},
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ]
+}
