@@ -15,18 +15,27 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-3">Laravel CSV Seeder</h1>
-        <p class="lead">Create laravel seeder from csv format.</p>
+        <p class="lead">Create laravel seeder from csv format text.</p>
     </div>
 </div>
 
 <div class="container">
     {!! Form::open() !!}
     <div>
-        {!! Form::label('csv', 'CSV Format Text here.') !!}
-        {!! Form::textarea('csv', null, [
-            'class' => 'form-control',
-            'rows' => '5'
-        ]) !!}
+        <div class="form-group">
+            {!! Form::label('table', 'Table name') !!}
+            {!! Form::text('table', null, [
+                'class' => 'form-control'
+            ]) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('csv', 'CSV Format Text') !!}
+            {!! Form::textarea('csv', null, [
+                'class' => 'form-control',
+                'rows' => '5'
+            ]) !!}
+        </div>
+        @if($errors->has('csv'))<span class="text-danger">{{ $errors->first('csv') }}</span>@endif
     </div>
     <div class="mt-3 mb-5">
         {!! Form::submit('convert', [
