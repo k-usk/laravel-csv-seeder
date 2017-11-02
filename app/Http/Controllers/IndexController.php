@@ -41,7 +41,8 @@ class IndexController extends Controller
             foreach ($records as $offset => $record) {
                 $seeder_txt .= "\t[";
                 foreach ($record as $key => $field) {
-                    $seeder_txt .= "'" . $key . "' => '" . $field . "', ";
+                  $field = $this->nl2nlstr($field);
+                  $seeder_txt .= '"' . $key . '" => "' . $field . '", ';
                 }
                 $seeder_txt .= "],\n";
             }
@@ -51,6 +52,28 @@ class IndexController extends Controller
         }
 
         return view('index', compact('seeder_txt'));
+    }
+
+    public function nl2nlstr($str){
+      $str = $this->convertEOL($str);
+      return strtr($str, array(
+          "\n" => "\\n"
+      ));
+    }
+
+    /**
+     * 改行コードを統一する
+     * @param  [type] $string [description]
+     * @param  string $to     [description]
+     * @return [type]         [description]
+     */
+    function convertEOL($string, $to = "\n")
+    {
+        return strtr($string, array(
+            "\r\n" => $to,
+            "\r" => $to,
+            "\n" => $to,
+        ));
     }
 
 }
