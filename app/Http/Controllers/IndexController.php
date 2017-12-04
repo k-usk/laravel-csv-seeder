@@ -42,6 +42,7 @@ class IndexController extends Controller
                 $seeder_txt .= "\t[";
                 foreach ($record as $key => $field) {
                   $field = $this->nl2nlstr($field);
+                  if($key === 'password') $field = Hash::make($field);
                   $seeder_txt .= '"' . $key . '" => "' . $field . '", ';
                 }
                 $seeder_txt .= "],\n";
