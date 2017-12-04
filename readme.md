@@ -51,7 +51,8 @@ DB::table('TABLE_NAME_HERE')->insert([
 ]);
 ```
 
-##Heroku Button
+## Heroku Button
+
 自分のHeroku環境で動作させたい場合は以下のボタンをご使用下さい。
 
 [![Heroku Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/k-usk/laravel-csv-seeder)
