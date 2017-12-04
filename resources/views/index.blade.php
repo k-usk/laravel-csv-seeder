@@ -53,6 +53,10 @@
         ]) !!}
     </div>
 
+    <div class="mt-5">
+      READ ME -> <a href="https://github.com/k-usk/laravel-csv-seeder">https://github.com/k-usk/laravel-csv-seeder</a>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
